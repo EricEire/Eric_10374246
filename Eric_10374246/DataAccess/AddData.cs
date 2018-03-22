@@ -12,7 +12,8 @@ namespace Eric_10374246.DataAccess
        
         public void addStudent(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course, int studentNo)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO Student VALUES(@FName, @LName, @email, @phone, @addressL1, @addressL2, @city, @county, @level, @course, @studentNo)", openConnection());
+            SqlCommand cmd = new SqlCommand("INSERT INTO Student VALUES(@FName, @LName, @email, @phone, @addressL1, @addressL2, @city," +
+                " @county, @level, @course, @studentNo)", openConnection());
             cmd.Parameters.AddWithValue("@FName", firstName);
             cmd.Parameters.AddWithValue("@LName", lastName);
             cmd.Parameters.AddWithValue("@email", email);

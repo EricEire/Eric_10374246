@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using Eric_10374246.DataAccess;
 
 namespace Eric_10374246
 {
     public partial class Form1 : Form
     {
-        private DataSet ds;
+        //private DataSet ds;
         string level;
         public Form1()
         {
@@ -39,11 +41,14 @@ namespace Eric_10374246
 
             private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            DataTable dt;
+            DAO dao = new DAO();
 
-            Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text,txtPhone.Text,txtAdd1.Text,txtAdd2.Text, txtCity.Text, cmbCounty.Text,level, cmbCourses.Text, int.Parse(txtStudentNo.Text) );
+            dao.openConnection();
 
-            output.Text = "Student Added";
+           Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text,txtPhone.Text,txtAdd1.Text,txtAdd2.Text, txtCity.Text, cmbCounty.Text,level, cmbCourses.Text, int.Parse(txtStudentNo.Text) );
+
+            dao.closeConnection();
         }
+   
     }
 }

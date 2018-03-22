@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Eric_10374246.DataAccess
 {
-    class DAO
+ public   class DAO
     {
         private SqlConnection conn;
 
