@@ -16,7 +16,7 @@ namespace Eric_10374246
     public partial class Form1 : Form
     {
         //private DataSet ds;
-        string level;
+        public string level;
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace Eric_10374246
 
         }
 
-        private void RadioChoice(object sender, EventArgs e)
+        public string RadioChoice()
         {
             if (rbtnPostGrad.Checked == true)
             {
@@ -37,6 +37,7 @@ namespace Eric_10374246
             {
                 level = "UnderGraduate";
             }
+            return level;
         }
 
             private void btnAddStudent_Click(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace Eric_10374246
 
             dao.openConnection();
 
-           Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text,txtPhone.Text,txtAdd1.Text,txtAdd2.Text, txtCity.Text, cmbCounty.Text,level, cmbCourses.Text, int.Parse(txtStudentNo.Text) );
+           Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text,txtPhone.Text,txtAdd1.Text,txtAdd2.Text, txtCity.Text, cmbCounty.Text,RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text) );
 
             dao.closeConnection();
         }
