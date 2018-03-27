@@ -50,6 +50,16 @@ namespace Eric_10374246
 
             dao.closeConnection();
         }
-   
+
+        private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Restarts the application, thus returning to the login page
+            Application.Restart();
+        }
     }
 }

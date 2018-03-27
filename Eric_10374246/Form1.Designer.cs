@@ -182,7 +182,7 @@
             // txtFN
             // 
             this.txtFN.Location = new System.Drawing.Point(280, 66);
-            this.txtFN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFN.Margin = new System.Windows.Forms.Padding(4);
             this.txtFN.Name = "txtFN";
             this.txtFN.Size = new System.Drawing.Size(204, 22);
             this.txtFN.TabIndex = 11;
@@ -190,7 +190,7 @@
             // txtLN
             // 
             this.txtLN.Location = new System.Drawing.Point(280, 110);
-            this.txtLN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLN.Margin = new System.Windows.Forms.Padding(4);
             this.txtLN.Name = "txtLN";
             this.txtLN.Size = new System.Drawing.Size(204, 22);
             this.txtLN.TabIndex = 12;
@@ -198,7 +198,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(280, 161);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(204, 22);
             this.txtEmail.TabIndex = 13;
@@ -206,7 +206,7 @@
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(280, 202);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(204, 22);
             this.txtPhone.TabIndex = 14;
@@ -214,7 +214,7 @@
             // txtAdd1
             // 
             this.txtAdd1.Location = new System.Drawing.Point(280, 236);
-            this.txtAdd1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAdd1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdd1.Name = "txtAdd1";
             this.txtAdd1.Size = new System.Drawing.Size(204, 22);
             this.txtAdd1.TabIndex = 15;
@@ -222,7 +222,7 @@
             // txtAdd2
             // 
             this.txtAdd2.Location = new System.Drawing.Point(280, 271);
-            this.txtAdd2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAdd2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdd2.Name = "txtAdd2";
             this.txtAdd2.Size = new System.Drawing.Size(204, 22);
             this.txtAdd2.TabIndex = 16;
@@ -230,7 +230,7 @@
             // txtCity
             // 
             this.txtCity.Location = new System.Drawing.Point(280, 300);
-            this.txtCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCity.Margin = new System.Windows.Forms.Padding(4);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(204, 22);
             this.txtCity.TabIndex = 17;
@@ -238,7 +238,7 @@
             // txtStudentNo
             // 
             this.txtStudentNo.Location = new System.Drawing.Point(280, 485);
-            this.txtStudentNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentNo.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentNo.Name = "txtStudentNo";
             this.txtStudentNo.Size = new System.Drawing.Size(204, 22);
             this.txtStudentNo.TabIndex = 18;
@@ -247,7 +247,7 @@
             // 
             this.rbtnPostGrad.AutoSize = true;
             this.rbtnPostGrad.Location = new System.Drawing.Point(280, 377);
-            this.rbtnPostGrad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnPostGrad.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnPostGrad.Name = "rbtnPostGrad";
             this.rbtnPostGrad.Size = new System.Drawing.Size(89, 21);
             this.rbtnPostGrad.TabIndex = 19;
@@ -259,7 +259,7 @@
             // 
             this.rbtnUnderGrad.AutoSize = true;
             this.rbtnUnderGrad.Location = new System.Drawing.Point(383, 377);
-            this.rbtnUnderGrad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnUnderGrad.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnUnderGrad.Name = "rbtnUnderGrad";
             this.rbtnUnderGrad.Size = new System.Drawing.Size(100, 21);
             this.rbtnUnderGrad.TabIndex = 20;
@@ -305,7 +305,7 @@
             "Wexford",
             "Wicklow"});
             this.cmbCounty.Location = new System.Drawing.Point(280, 334);
-            this.cmbCounty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCounty.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCounty.Name = "cmbCounty";
             this.cmbCounty.Size = new System.Drawing.Size(204, 24);
             this.cmbCounty.TabIndex = 21;
@@ -324,7 +324,7 @@
             "Law",
             "Media"});
             this.cmbCourses.Location = new System.Drawing.Point(280, 421);
-            this.cmbCourses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCourses.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCourses.Name = "cmbCourses";
             this.cmbCourses.Size = new System.Drawing.Size(204, 24);
             this.cmbCourses.TabIndex = 22;
@@ -332,7 +332,7 @@
             // btnAddStudent
             // 
             this.btnAddStudent.Location = new System.Drawing.Point(280, 517);
-            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(205, 28);
             this.btnAddStudent.TabIndex = 23;
@@ -343,7 +343,7 @@
             // btnShowAllStudents
             // 
             this.btnShowAllStudents.Location = new System.Drawing.Point(280, 558);
-            this.btnShowAllStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShowAllStudents.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowAllStudents.Name = "btnShowAllStudents";
             this.btnShowAllStudents.Size = new System.Drawing.Size(205, 28);
             this.btnShowAllStudents.TabIndex = 24;
@@ -398,7 +398,7 @@
             this.eDITSTUDENTToolStripMenuItem,
             this.dELETESTUDENTToolStripMenuItem});
             this.sTUDENTToolStripMenuItem.Name = "sTUDENTToolStripMenuItem";
-            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
             this.sTUDENTToolStripMenuItem.Text = "STUDENT";
             // 
             // aDDNEWSTUDENTToolStripMenuItem
@@ -447,12 +447,14 @@
             this.lOGOUTToolStripMenuItem.Name = "lOGOUTToolStripMenuItem";
             this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.lOGOUTToolStripMenuItem.Text = "LOG OUT";
+            this.lOGOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
             this.eXITToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.eXITToolStripMenuItem.Text = "EXIT";
+            this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -490,7 +492,7 @@
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management System - DBS";
