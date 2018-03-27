@@ -61,5 +61,22 @@ namespace Eric_10374246
             //Restarts the application, thus returning to the login page
             Application.Restart();
         }
+
+        private void aDDNEWSTUDENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //same as btnAddStudent... may remove, seems pointless
+            DAO dao = new DAO();
+
+            dao.openConnection();
+
+            Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
+
+            dao.closeConnection();
+        }
+
+        private void btnShowAllStudents_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

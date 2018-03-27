@@ -349,6 +349,7 @@
             this.btnShowAllStudents.TabIndex = 24;
             this.btnShowAllStudents.Text = "Show All Students";
             this.btnShowAllStudents.UseVisualStyleBackColor = true;
+            this.btnShowAllStudents.Click += new System.EventHandler(this.btnShowAllStudents_Click);
             // 
             // lblStudentInfoHeading
             // 
@@ -398,7 +399,7 @@
             this.eDITSTUDENTToolStripMenuItem,
             this.dELETESTUDENTToolStripMenuItem});
             this.sTUDENTToolStripMenuItem.Name = "sTUDENTToolStripMenuItem";
-            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.sTUDENTToolStripMenuItem.Text = "STUDENT";
             // 
             // aDDNEWSTUDENTToolStripMenuItem
@@ -406,6 +407,7 @@
             this.aDDNEWSTUDENTToolStripMenuItem.Name = "aDDNEWSTUDENTToolStripMenuItem";
             this.aDDNEWSTUDENTToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.aDDNEWSTUDENTToolStripMenuItem.Text = "ADD NEW STUDENT";
+            this.aDDNEWSTUDENTToolStripMenuItem.Click += new System.EventHandler(this.aDDNEWSTUDENTToolStripMenuItem_Click);
             // 
             // eDITSTUDENTToolStripMenuItem
             // 
@@ -445,14 +447,14 @@
             // lOGOUTToolStripMenuItem
             // 
             this.lOGOUTToolStripMenuItem.Name = "lOGOUTToolStripMenuItem";
-            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.lOGOUTToolStripMenuItem.Text = "LOG OUT";
             this.lOGOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.eXITToolStripMenuItem.Text = "EXIT";
             this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 

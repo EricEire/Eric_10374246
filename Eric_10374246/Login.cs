@@ -53,6 +53,27 @@ namespace Eric_10374246
             }
         }
 
+        private void mnuLogin_Click(object sender, EventArgs e)
+        {
+            //same as btnLogin. 
+            Form1 form = new Form1();
+            //define local variables from the user inputs 
+            string user = txtUsername.Text;
+            string pass = txtPwd.Text;
+            //check if eligible to be logged in 
+            if (login.IsLoggedIn(user, pass))
+            {
+
+                form.Show();
+
+            }
+            else
+            {
+                //show default login error message 
+                MessageBox.Show("Invalid Login");
+            }
+
+        }
     }
 }
 

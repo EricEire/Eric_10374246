@@ -65,6 +65,7 @@
             this.mnuLogin.Name = "mnuLogin";
             this.mnuLogin.Size = new System.Drawing.Size(216, 26);
             this.mnuLogin.Text = "Login";
+            this.mnuLogin.Click += new System.EventHandler(this.mnuLogin_Click);
             // 
             // exitToolStripMenuItem
             // 

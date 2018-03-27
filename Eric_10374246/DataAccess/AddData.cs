@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Business;
 
 namespace Eric_10374246.DataAccess
 {
@@ -28,6 +29,17 @@ namespace Eric_10374246.DataAccess
             cmd.Parameters.AddWithValue("@level", level);
             cmd.Parameters.AddWithValue("@course", course);
  
+            cmd.ExecuteNonQuery();
+            closeConnection();
+        }
+
+        public void showAllStudents(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course, int studentNo)
+        {
+
+
+            SqlCommand cmd = new SqlCommand("uspShowAllStudents", openConnection());
+            cmd.CommandType = CommandType.StoredProcedure;
+
             cmd.ExecuteNonQuery();
             closeConnection();
         }

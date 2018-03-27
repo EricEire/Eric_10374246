@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Sql;
+using System.Data.SqlClient;
+
 
 namespace Business
 {
@@ -51,7 +54,13 @@ namespace Business
             Student s = new Student(fn,ln,e,t,a1,a2,c,co,l,crs,sn);
             students.Add(s);
             s.addToDB();
+            
+        }
 
+       public static void showAllStudents()
+        {
+            List<Student> studentList = new List<Student>();
+            data.showAllStudents();
         }
     }
 }
