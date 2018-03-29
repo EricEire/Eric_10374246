@@ -14,7 +14,7 @@ namespace Eric_10374246
 {
     public partial class Login : Form
     {
-        LoginData login = new LoginData("DBS","pwd123");
+        LoginData login = new LoginData("DBS","password123");
         
         public Login()
         {

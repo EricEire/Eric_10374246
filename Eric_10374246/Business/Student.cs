@@ -57,21 +57,10 @@ namespace Business
             
         }
 
-        public static FindStudent()
+       public static void showAllStudents()
         {
-            int sn;
-            Student student1 = null;
             List<Student> studentList = new List<Student>();
-            bool found = false;
-            for (int i = 0; i < studentList.Count && !found; i++)
-            {
-                if (studentList[i].studentNo == sn)
-                {
-                    student1 = studentList[i];
-                    found = true;
-                }
-            }
-            return student1;
+            data.showAllStudents();
         }
     }
 }
