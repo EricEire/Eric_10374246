@@ -52,7 +52,6 @@
             this.cmbCounty = new System.Windows.Forms.ComboBox();
             this.cmbCourses = new System.Windows.Forms.ComboBox();
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.btnShowAllStudents = new System.Windows.Forms.Button();
             this.lblStudentInfoHeading = new System.Windows.Forms.Label();
             this.output = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -66,6 +65,7 @@
             this.eXITLOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fINDSTUDENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -340,17 +340,6 @@
             this.btnAddStudent.UseVisualStyleBackColor = true;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
-            // btnShowAllStudents
-            // 
-            this.btnShowAllStudents.Location = new System.Drawing.Point(280, 558);
-            this.btnShowAllStudents.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowAllStudents.Name = "btnShowAllStudents";
-            this.btnShowAllStudents.Size = new System.Drawing.Size(205, 28);
-            this.btnShowAllStudents.TabIndex = 24;
-            this.btnShowAllStudents.Text = "Show All Students";
-            this.btnShowAllStudents.UseVisualStyleBackColor = true;
-            this.btnShowAllStudents.Click += new System.EventHandler(this.btnShowAllStudents_Click);
-            // 
             // lblStudentInfoHeading
             // 
             this.lblStudentInfoHeading.AutoSize = true;
@@ -397,7 +386,8 @@
             this.sTUDENTToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aDDNEWSTUDENTToolStripMenuItem,
             this.eDITSTUDENTToolStripMenuItem,
-            this.dELETESTUDENTToolStripMenuItem});
+            this.dELETESTUDENTToolStripMenuItem,
+            this.fINDSTUDENTToolStripMenuItem});
             this.sTUDENTToolStripMenuItem.Name = "sTUDENTToolStripMenuItem";
             this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.sTUDENTToolStripMenuItem.Text = "STUDENT";
@@ -458,6 +448,13 @@
             this.eXITToolStripMenuItem.Text = "EXIT";
             this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
+            // fINDSTUDENTToolStripMenuItem
+            // 
+            this.fINDSTUDENTToolStripMenuItem.Name = "fINDSTUDENTToolStripMenuItem";
+            this.fINDSTUDENTToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
+            this.fINDSTUDENTToolStripMenuItem.Text = "FIND STUDENT";
+            this.fINDSTUDENTToolStripMenuItem.Click += new System.EventHandler(this.fINDSTUDENTToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -466,7 +463,6 @@
             this.ClientSize = new System.Drawing.Size(589, 647);
             this.Controls.Add(this.output);
             this.Controls.Add(this.lblStudentInfoHeading);
-            this.Controls.Add(this.btnShowAllStudents);
             this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.cmbCourses);
             this.Controls.Add(this.cmbCounty);
@@ -532,7 +528,6 @@
         private System.Windows.Forms.ComboBox cmbCounty;
         private System.Windows.Forms.ComboBox cmbCourses;
         private System.Windows.Forms.Button btnAddStudent;
-        private System.Windows.Forms.Button btnShowAllStudents;
         private System.Windows.Forms.Label lblStudentInfoHeading;
         private System.Windows.Forms.Label output;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -546,6 +541,7 @@
         private System.Windows.Forms.ToolStripMenuItem eXITLOGOUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lOGOUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eXITToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fINDSTUDENTToolStripMenuItem;
     }
 }
 

@@ -17,6 +17,8 @@ namespace Eric_10374246
     {
         //private DataSet ds;
         public string level;
+        List<Student> studentList = new List<Student>();
+        
         public Form1()
         {
             InitializeComponent();
@@ -74,8 +76,14 @@ namespace Eric_10374246
             dao.closeConnection();
         }
 
-        private void btnShowAllStudents_Click(object sender, EventArgs e)
+
+
+        private void fINDSTUDENTToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DAO dao = new DAO();
+            dao.openConnection();
+
+            
 
         }
     }
