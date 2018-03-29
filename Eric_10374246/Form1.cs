@@ -73,6 +73,9 @@ namespace Eric_10374246
 
             Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
 
+            DataGridForm form = new DataGridForm();
+            form.Show();
+
             dao.closeConnection();
         }
 

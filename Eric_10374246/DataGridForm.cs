@@ -23,5 +23,25 @@ namespace Eric_10374246
             this.studentTableAdapter.Fill(this.advProDataSet.Student);
 
         }
+
+        private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Restarts the application, thus returning to the login page
+            Application.Restart();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Exits application
+            Application.Exit();
+        }
+
+        private void aDDNEWSTUDENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Show();
+
+            
+        }
     }
 }

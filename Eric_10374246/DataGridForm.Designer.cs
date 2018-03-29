@@ -91,7 +91,7 @@
             this.dELETESTUDENTToolStripMenuItem,
             this.fINDSTUDENTToolStripMenuItem});
             this.sTUDENTToolStripMenuItem.Name = "sTUDENTToolStripMenuItem";
-            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.sTUDENTToolStripMenuItem.Text = "STUDENT";
             // 
             // aDDNEWSTUDENTToolStripMenuItem
@@ -99,6 +99,7 @@
             this.aDDNEWSTUDENTToolStripMenuItem.Name = "aDDNEWSTUDENTToolStripMenuItem";
             this.aDDNEWSTUDENTToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.aDDNEWSTUDENTToolStripMenuItem.Text = "ADD NEW STUDENT";
+            this.aDDNEWSTUDENTToolStripMenuItem.Click += new System.EventHandler(this.aDDNEWSTUDENTToolStripMenuItem_Click);
             // 
             // eDITSTUDENTToolStripMenuItem
             // 
@@ -144,8 +145,9 @@
             // lOGOUTToolStripMenuItem
             // 
             this.lOGOUTToolStripMenuItem.Name = "lOGOUTToolStripMenuItem";
-            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.lOGOUTToolStripMenuItem.Text = "LOG OUT";
+            this.lOGOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 

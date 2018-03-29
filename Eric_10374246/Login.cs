@@ -35,7 +35,7 @@ namespace Eric_10374246
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
+            DataGridForm form = new DataGridForm();
             //define local variables from the user inputs 
             string user = txtUsername.Text;
             string pass = txtPwd.Text;
@@ -56,7 +56,7 @@ namespace Eric_10374246
         private void mnuLogin_Click(object sender, EventArgs e)
         {
             //same as btnLogin. 
-            Form1 form = new Form1();
+            DataGridForm form = new DataGridForm();
             //define local variables from the user inputs 
             string user = txtUsername.Text;
             string pass = txtPwd.Text;
