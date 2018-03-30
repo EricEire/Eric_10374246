@@ -57,10 +57,13 @@ namespace Business
             
         }
 
-       //public static void showAllStudents()
-       // {
-       //     List<Student> studentList = new List<Student>();
-       //     data.showAllStudents();
-       // }
+        public static void updateStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs, int sn)
+        {
+            Student s = new Student(fn, ln, e, t, a1, a2, c, co, l, crs, sn);
+            students.Add(s);
+            s.addToDB();
+
+        }
+
     }
 }

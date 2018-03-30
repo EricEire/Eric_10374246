@@ -133,24 +133,28 @@ namespace Eric_10374246
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             dao.openConnection();
-            SqlCommand cmd = new SqlCommand("update Student set PhoneNo=@PhoneNo,AddressLine1=@AddressLine1," +
-                $"AddressLine2=@AddressLine2, City=@City,County=@County,StudentNo=@StudentNo  where StudentNo={txtStudentNo.Text}", dao.openConnection());
-            cmd.Parameters.AddWithValue("@PhoneNo", txtPhone.Text);
-            cmd.Parameters.AddWithValue("@AddressLine1", txtAdd1.Text);
-            cmd.Parameters.AddWithValue("@AddressLine2", txtAdd2.Text);
-            cmd.Parameters.AddWithValue("@City", txtCity.Text);
-            cmd.Parameters.AddWithValue("@County", cmbCounty.Text);
-            cmd.Parameters.AddWithValue("@StudentNo", txtStudentNo.Text);
+            Student.updateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
 
-            cmd.ExecuteNonQuery();
+            //SqlCommand cmd = new SqlCommand("UPDATE Student SET @PhoneNo = PhoneNo, @AddressLine1 = AddressLine1," +
+            //    " @AddressLine2 = AddressLine2,@City = City,@County = County WHERE StudentNo = @StudentNo", dao.openConnection());
+            //dao.openConnection();
+            //cmd.Parameters.AddWithValue("@StudentNo", txtStudentNo.Text);
+            //cmd.Parameters.AddWithValue("@PhoneNo", txtPhone.Text);
+            //cmd.Parameters.AddWithValue("@AddressLine1", txtAdd1.Text);
+            //cmd.Parameters.AddWithValue("@AddressLine2", txtAdd2.Text);
+            //cmd.Parameters.AddWithValue("@City", txtCity.Text);
+            //cmd.Parameters.AddWithValue("@County", cmbCounty.Text);
 
+
+            //cmd.ExecuteNonQuery();
+            dao.closeConnection();
 
             txtFN.ReadOnly = false;
             txtLN.ReadOnly = false;
             MessageBox.Show("Student Updated");
             ClearFields();
             Grid();
-            dao.closeConnection();
+
         }
 
         private void dgStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)

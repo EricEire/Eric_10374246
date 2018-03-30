@@ -50,5 +50,32 @@ namespace Eric_10374246.DataAccess
             cmd.ExecuteNonQuery();
             closeConnection();
         }
+
+        public void updateStudent(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course, int studentNo)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE Student VALUES", openConnection());
+            try
+            {
+
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@phone", tel);
+                cmd.Parameters.AddWithValue("@addressL1", addL1);
+                cmd.Parameters.AddWithValue("@addressL2", addL2);
+                cmd.Parameters.AddWithValue("@city", city);
+                cmd.Parameters.AddWithValue("@county", county);
+                cmd.Parameters.AddWithValue("@level", level);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            closeConnection();
+
+
+            cmd.ExecuteNonQuery();
+            closeConnection();
+        }
     }
 }
