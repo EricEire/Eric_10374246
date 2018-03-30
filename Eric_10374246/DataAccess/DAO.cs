@@ -13,7 +13,7 @@ namespace Eric_10374246.DataAccess
 
         public DAO()
         {
-            conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = AdvPro; Integrated Security = True; ");
+            conn = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog =StudentDB; Integrated Security = True; ");
         }
 
         public SqlConnection openConnection()

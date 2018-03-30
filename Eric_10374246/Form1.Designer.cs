@@ -52,7 +52,6 @@
             this.cmbCounty = new System.Windows.Forms.ComboBox();
             this.cmbCourses = new System.Windows.Forms.ComboBox();
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.btnShowAllStudents = new System.Windows.Forms.Button();
             this.lblStudentInfoHeading = new System.Windows.Forms.Label();
             this.output = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -66,7 +65,14 @@
             this.eXITLOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgStudents = new System.Windows.Forms.DataGridView();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFName
@@ -340,17 +346,6 @@
             this.btnAddStudent.UseVisualStyleBackColor = true;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
-            // btnShowAllStudents
-            // 
-            this.btnShowAllStudents.Location = new System.Drawing.Point(280, 558);
-            this.btnShowAllStudents.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowAllStudents.Name = "btnShowAllStudents";
-            this.btnShowAllStudents.Size = new System.Drawing.Size(205, 28);
-            this.btnShowAllStudents.TabIndex = 24;
-            this.btnShowAllStudents.Text = "Show All Students";
-            this.btnShowAllStudents.UseVisualStyleBackColor = true;
-            this.btnShowAllStudents.Click += new System.EventHandler(this.btnShowAllStudents_Click);
-            // 
             // lblStudentInfoHeading
             // 
             this.lblStudentInfoHeading.AutoSize = true;
@@ -380,7 +375,7 @@
             this.eXITLOGOUTToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(589, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1146, 28);
             this.menuStrip1.TabIndex = 27;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -399,7 +394,7 @@
             this.eDITSTUDENTToolStripMenuItem,
             this.dELETESTUDENTToolStripMenuItem});
             this.sTUDENTToolStripMenuItem.Name = "sTUDENTToolStripMenuItem";
-            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
             this.sTUDENTToolStripMenuItem.Text = "STUDENT";
             // 
             // aDDNEWSTUDENTToolStripMenuItem
@@ -458,15 +453,78 @@
             this.eXITToolStripMenuItem.Text = "EXIT";
             this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
+            // dgStudents
+            // 
+            this.dgStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgStudents.Location = new System.Drawing.Point(512, 70);
+            this.dgStudents.Name = "dgStudents";
+            this.dgStudents.ReadOnly = true;
+            this.dgStudents.RowTemplate.Height = 24;
+            this.dgStudents.Size = new System.Drawing.Size(622, 437);
+            this.dgStudents.TabIndex = 28;
+            this.dgStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgStudents_CellContentClick);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(926, 517);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(208, 30);
+            this.btnSearch.TabIndex = 29;
+            this.btnSearch.Text = "Search for Student";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(679, 546);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(241, 17);
+            this.lblSearch.TabIndex = 30;
+            this.lblSearch.Text = "Enter student number to search here";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(677, 521);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(243, 22);
+            this.txtSearch.TabIndex = 31;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(35, 517);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(189, 28);
+            this.btnUpdate.TabIndex = 32;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(926, 564);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(208, 29);
+            this.btnRefresh.TabIndex = 33;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(589, 647);
+            this.ClientSize = new System.Drawing.Size(1146, 673);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.lblSearch);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.dgStudents);
             this.Controls.Add(this.output);
             this.Controls.Add(this.lblStudentInfoHeading);
-            this.Controls.Add(this.btnShowAllStudents);
             this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.cmbCourses);
             this.Controls.Add(this.cmbCounty);
@@ -501,6 +559,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,7 +591,6 @@
         private System.Windows.Forms.ComboBox cmbCounty;
         private System.Windows.Forms.ComboBox cmbCourses;
         private System.Windows.Forms.Button btnAddStudent;
-        private System.Windows.Forms.Button btnShowAllStudents;
         private System.Windows.Forms.Label lblStudentInfoHeading;
         private System.Windows.Forms.Label output;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -546,6 +604,12 @@
         private System.Windows.Forms.ToolStripMenuItem eXITLOGOUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lOGOUTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eXITToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgStudents;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
 

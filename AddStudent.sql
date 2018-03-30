@@ -10,7 +10,7 @@ AddressLine1 VARCHAR(100),
 AddressLine2 VARCHAR(100),
 City VARCHAR(50),
 County VARCHAR(50),
+Course VARCHAR(50),
 CourseLevel VARCHAR(20))
+
 exec uspCreateStudent
-
-

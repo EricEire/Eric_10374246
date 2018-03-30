@@ -17,19 +17,26 @@ namespace Eric_10374246.DataAccess
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO Student VALUES(@studentNo,@FName, @LName, @email, @phone, @addressL1, @addressL2, @city," +
                 " @county, @level, @course)", openConnection());
-            cmd.Parameters.AddWithValue("@studentNo", studentNo);
-            cmd.Parameters.AddWithValue("@FName", firstName);
-            cmd.Parameters.AddWithValue("@LName", lastName);
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@phone", tel);
-            cmd.Parameters.AddWithValue("@addressL1", addL1);
-            cmd.Parameters.AddWithValue("@addressL2", addL2);
-            cmd.Parameters.AddWithValue("@city", city);
-            cmd.Parameters.AddWithValue("@county", county);
-            cmd.Parameters.AddWithValue("@level", level);
-            cmd.Parameters.AddWithValue("@course", course);
- 
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.Parameters.AddWithValue("@studentNo", studentNo);
+                cmd.Parameters.AddWithValue("@FName", firstName);
+                cmd.Parameters.AddWithValue("@LName", lastName);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@phone", tel);
+                cmd.Parameters.AddWithValue("@addressL1", addL1);
+                cmd.Parameters.AddWithValue("@addressL2", addL2);
+                cmd.Parameters.AddWithValue("@city", city);
+                cmd.Parameters.AddWithValue("@county", county);
+                cmd.Parameters.AddWithValue("@level", level);
+                cmd.Parameters.AddWithValue("@course", course);
+
+                cmd.ExecuteNonQuery();
+            }
+             catch(Exception)
+            {
+                throw;
+            }
             closeConnection();
         }
 
@@ -37,7 +44,7 @@ namespace Eric_10374246.DataAccess
         {
 
 
-            SqlCommand cmd = new SqlCommand("uspShowAllStudents", openConnection());
+            SqlCommand cmd = new SqlCommand("uspFillDataGrid", openConnection());
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.ExecuteNonQuery();

@@ -57,10 +57,10 @@ namespace Business
             
         }
 
-       public static void showAllStudents()
-        {
-            List<Student> studentList = new List<Student>();
-            data.showAllStudents();
-        }
+       //public static void showAllStudents()
+       // {
+       //     List<Student> studentList = new List<Student>();
+       //     data.showAllStudents();
+       // }
     }
 }
