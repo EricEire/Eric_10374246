@@ -13,12 +13,12 @@ using Eric_10374246.DataAccess;
 
 namespace Eric_10374246
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         DAO dao = new DAO();
         //private DataSet ds;
         public string level;
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -133,7 +133,6 @@ namespace Eric_10374246
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             dao.openConnection();
-            Student.updateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
 
             //SqlCommand cmd = new SqlCommand("UPDATE Student SET @PhoneNo = PhoneNo, @AddressLine1 = AddressLine1," +
             //    " @AddressLine2 = AddressLine2,@City = City,@County = County WHERE StudentNo = @StudentNo", dao.openConnection());
@@ -145,8 +144,45 @@ namespace Eric_10374246
             //cmd.Parameters.AddWithValue("@City", txtCity.Text);
             //cmd.Parameters.AddWithValue("@County", cmbCounty.Text);
 
+            //  SqlDataAdapter DA = new SqlDataAdapter(
+            //"SELECT *  FROM Student",
+            //dao.openConnection());
+
+            //  DA.UpdateCommand = new SqlCommand(
+            //     "UPDATE Student SET PhoneNo = @PhoneNo,Email=@Email,AddressLine1=@AddressLine1,AddressLine2=@AddressLine2,City=@City,County=@County " +
+            //     "WHERE StudentNo = @StudentNo", dao.openConnection());
+
+            // DA.UpdateCommand.Parameters.Add(
+            //     "@PhoneNo", SqlDbType.VarChar, 20, "PhoneNo");
+            //  DA.UpdateCommand.Parameters.Add(
+            //     "@Email", SqlDbType.VarChar, 100, "Email");
+            //  DA.UpdateCommand.Parameters.Add(
+            //     "@AddressLine1", SqlDbType.VarChar, 100, "AddressLine1");
+            //  DA.UpdateCommand.Parameters.Add(
+            //      "@AddressLine2", SqlDbType.VarChar, 100, "AddressLine2");
+            //  DA.UpdateCommand.Parameters.Add(
+            //      "@City", SqlDbType.VarChar, 50, "City");
+            //  DA.UpdateCommand.Parameters.Add(
+            //     "@County", SqlDbType.VarChar, 50, "County");
+
+            //  SqlParameter parameter = DA.UpdateCommand.Parameters.Add(
+            //    "@StudentNo", SqlDbType.Int);
+            //  parameter.SourceColumn = "StudentNo";
+            //  parameter.SourceVersion = DataRowVersion.Original;
+
+            //  DataTable studentTable = new DataTable();
+            //  DA.Fill(studentTable);
+
+            //  DataRow studentRow = studentTable.Rows[0];
+            //  studentRow["PhoneNo"] = "PhoneNo";
+
+            //  DA.Update(studentTable);
+
 
             //cmd.ExecuteNonQuery();
+
+            Student.UpdateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
+
             dao.closeConnection();
 
             txtFN.ReadOnly = false;
@@ -184,6 +220,27 @@ namespace Eric_10374246
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            Grid();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            DAO dao = new DAO();
+
+            dao.openConnection();
+
+            Student.DeleteStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
+
+            dao.closeConnection();
+
+            ClearFields();
+            Grid();
+       
+            MessageBox.Show("Student Deleted");
+            txtFN.ReadOnly = false;
+            txtLN.ReadOnly = false;
+
             Grid();
         }
     }

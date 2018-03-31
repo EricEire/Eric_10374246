@@ -13,6 +13,8 @@ namespace Business
     class Student
     {
         static AddData data = new AddData();
+
+        static SqlDataAdapter DA = new SqlDataAdapter();
         static List<Student> students = new List<Student>();
         public string firstName  { get; set; }
         public string lastName { get; set; }
@@ -49,6 +51,11 @@ namespace Business
             data.addStudent(firstName,lastName,email,tel,addL1,addL2,city,county,level, course,studentNo);
         }
 
+        public void RemoveFromDB()
+        {
+            data.DeleteStudent(firstName, lastName, email, tel, addL1, addL2, city, county, level, course, studentNo);
+        }
+
         public static void AddStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs,  int sn)
         {
             Student s = new Student(fn,ln,e,t,a1,a2,c,co,l,crs,sn);
@@ -57,12 +64,17 @@ namespace Business
             
         }
 
-        public static void updateStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs, int sn)
+        public static void DeleteStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs, int sn)
         {
             Student s = new Student(fn, ln, e, t, a1, a2, c, co, l, crs, sn);
-            students.Add(s);
-            s.addToDB();
+            students.Remove(s);
+            s.RemoveFromDB();
+        }
 
+        public static void UpdateStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs, int sn)
+        {
+
+            data.updateStudent(fn, ln, e, t, a1, a2, c, co, l, crs, sn);
         }
 
     }
