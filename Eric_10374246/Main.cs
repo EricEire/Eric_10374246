@@ -135,13 +135,14 @@ namespace Eric_10374246
             DAO dao = new DAO();
             dao.openConnection();
 
-            Student.UpdateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
+            Student.UpdateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, cmbCourses.Text, RadioChoice(), int.Parse(txtStudentNo.Text));
 
             dao.closeConnection();
 
             txtFN.ReadOnly = false;
             txtLN.ReadOnly = false;
             MessageBox.Show("Student Updated");
+            btnUpdate.Visible = false;
             ClearFields();
             Grid();
 

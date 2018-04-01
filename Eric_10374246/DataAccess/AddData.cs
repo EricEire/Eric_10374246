@@ -19,7 +19,7 @@ namespace Eric_10374246.DataAccess
             try
             {
                 SqlCommand cmd = new SqlCommand("INSERT INTO Student VALUES(@studentNo,@FName, @LName, @email, @phone, @addressL1, @addressL2, @city," +
-                " @county, @level, @course)", openConnection());
+                " @county, @course, @level)", openConnection());
 
                 cmd.Parameters.AddWithValue("@studentNo", studentNo);
                 cmd.Parameters.AddWithValue("@FName", firstName);
@@ -30,8 +30,9 @@ namespace Eric_10374246.DataAccess
                 cmd.Parameters.AddWithValue("@addressL2", addL2);
                 cmd.Parameters.AddWithValue("@city", city);
                 cmd.Parameters.AddWithValue("@county", county);
-                cmd.Parameters.AddWithValue("@level", level);
                 cmd.Parameters.AddWithValue("@course", course);
+                cmd.Parameters.AddWithValue("@level", level);
+                
 
                 cmd.ExecuteNonQuery();
             }
@@ -64,13 +65,15 @@ namespace Eric_10374246.DataAccess
 
             public void updateStudent(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course, int studentNo)
         {
-            openConnection();
+            
             try
             {
-                SqlCommand cmd = new SqlCommand("Update Student SET @FirstName=firstName,@LastName=lastName, " +
-                    " @Email=email,@PhoneNo= tel, @AddressLine1=addL1, @AddressLine2=addL2, " +
-                    "@City=city, @County=county, " +
-                "@CourseLevel=level,@Course=course WHERE studentNo = @StudentNo", openConnection());
+                openConnection();
+
+                SqlCommand cmd = new SqlCommand("UPDATE Student SET firstName=@FirstName,lastName=@LastName, " +
+                    " email=@Email,tel=@PhoneNo,addL1=@AddressLine1, addL2=@AddressLine2, " +
+                    "city=@City, county=@County, " +
+                "level=@CourseLevel,course=@Course WHERE studentNo = @StudentNo", openConnection());
 
                 
                 cmd.Parameters.AddWithValue("@FirstName", firstName);
