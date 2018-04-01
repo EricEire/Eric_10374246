@@ -132,54 +132,8 @@ namespace Eric_10374246
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            DAO dao = new DAO();
             dao.openConnection();
-
-            //SqlCommand cmd = new SqlCommand("UPDATE Student SET @PhoneNo = PhoneNo, @AddressLine1 = AddressLine1," +
-            //    " @AddressLine2 = AddressLine2,@City = City,@County = County WHERE StudentNo = @StudentNo", dao.openConnection());
-            //dao.openConnection();
-            //cmd.Parameters.AddWithValue("@StudentNo", txtStudentNo.Text);
-            //cmd.Parameters.AddWithValue("@PhoneNo", txtPhone.Text);
-            //cmd.Parameters.AddWithValue("@AddressLine1", txtAdd1.Text);
-            //cmd.Parameters.AddWithValue("@AddressLine2", txtAdd2.Text);
-            //cmd.Parameters.AddWithValue("@City", txtCity.Text);
-            //cmd.Parameters.AddWithValue("@County", cmbCounty.Text);
-
-            //  SqlDataAdapter DA = new SqlDataAdapter(
-            //"SELECT *  FROM Student",
-            //dao.openConnection());
-
-            //  DA.UpdateCommand = new SqlCommand(
-            //     "UPDATE Student SET PhoneNo = @PhoneNo,Email=@Email,AddressLine1=@AddressLine1,AddressLine2=@AddressLine2,City=@City,County=@County " +
-            //     "WHERE StudentNo = @StudentNo", dao.openConnection());
-
-            // DA.UpdateCommand.Parameters.Add(
-            //     "@PhoneNo", SqlDbType.VarChar, 20, "PhoneNo");
-            //  DA.UpdateCommand.Parameters.Add(
-            //     "@Email", SqlDbType.VarChar, 100, "Email");
-            //  DA.UpdateCommand.Parameters.Add(
-            //     "@AddressLine1", SqlDbType.VarChar, 100, "AddressLine1");
-            //  DA.UpdateCommand.Parameters.Add(
-            //      "@AddressLine2", SqlDbType.VarChar, 100, "AddressLine2");
-            //  DA.UpdateCommand.Parameters.Add(
-            //      "@City", SqlDbType.VarChar, 50, "City");
-            //  DA.UpdateCommand.Parameters.Add(
-            //     "@County", SqlDbType.VarChar, 50, "County");
-
-            //  SqlParameter parameter = DA.UpdateCommand.Parameters.Add(
-            //    "@StudentNo", SqlDbType.Int);
-            //  parameter.SourceColumn = "StudentNo";
-            //  parameter.SourceVersion = DataRowVersion.Original;
-
-            //  DataTable studentTable = new DataTable();
-            //  DA.Fill(studentTable);
-
-            //  DataRow studentRow = studentTable.Rows[0];
-            //  studentRow["PhoneNo"] = "PhoneNo";
-
-            //  DA.Update(studentTable);
-
-
-            //cmd.ExecuteNonQuery();
 
             Student.UpdateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
 
@@ -221,6 +175,7 @@ namespace Eric_10374246
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             Grid();
+            txtSearch.Text = "";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

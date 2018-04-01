@@ -79,10 +79,16 @@ namespace Business
           data.DeleteStudentSN(studentNo);
         }
 
-        public static void UpdateStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs, int sn)
+        public void UpdateStudents(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course,int StudentNo)
         {
 
-            data.updateStudent(fn, ln, e, t, a1, a2, c, co, l, crs, sn);
+            data.updateStudent(firstName,lastName,email,tel,addL1,addL2,city,county,level, course,StudentNo);
+        }
+
+        public static void UpdateStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs, int sn)
+        {
+            Student s = new Student(fn, ln, e, t, a1, a2, c, co, l, crs, sn);
+            s.UpdateStudents(fn, ln, e, t, a1, a2, c, co, l, crs, sn);
         }
 
     }

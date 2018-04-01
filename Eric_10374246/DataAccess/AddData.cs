@@ -15,10 +15,12 @@ namespace Eric_10374246.DataAccess
 
         public void addStudent(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course, int studentNo)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO Student VALUES(@studentNo,@FName, @LName, @email, @phone, @addressL1, @addressL2, @city," +
-                " @county, @level, @course)", openConnection());
+            
             try
             {
+                SqlCommand cmd = new SqlCommand("INSERT INTO Student VALUES(@studentNo,@FName, @LName, @email, @phone, @addressL1, @addressL2, @city," +
+                " @county, @level, @course)", openConnection());
+
                 cmd.Parameters.AddWithValue("@studentNo", studentNo);
                 cmd.Parameters.AddWithValue("@FName", firstName);
                 cmd.Parameters.AddWithValue("@LName", lastName);
@@ -59,53 +61,76 @@ namespace Eric_10374246.DataAccess
 
         }
 
-            //public void showAllStudents(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course, int studentNo)
-            //{
-
-
-            //    SqlCommand cmd = new SqlCommand("uspFillDataGrid", openConnection());
-            //    cmd.CommandType = CommandType.StoredProcedure;
-
-            //    cmd.ExecuteNonQuery();
-            //    closeConnection();
-            //}
 
             public void updateStudent(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course, int studentNo)
         {
+            openConnection();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Update Student SET @FirstName=firstName,@LastName=lastName, " +
+                    " @Email=email,@PhoneNo= tel, @AddressLine1=addL1, @AddressLine2=addL2, " +
+                    "@City=city, @County=county, " +
+                "@CourseLevel=level,@Course=course WHERE studentNo = @StudentNo", openConnection());
 
-            SqlDataAdapter DA = new SqlDataAdapter(
-          "SELECT *  FROM Student",
-          openConnection());
+                
+                cmd.Parameters.AddWithValue("@FirstName", firstName);
+                cmd.Parameters.AddWithValue("@LastName", lastName);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@PhoneNo", tel);
+                cmd.Parameters.AddWithValue("@AddressLine1", addL1);
+                cmd.Parameters.AddWithValue("@AddressLine2", addL2);
+                cmd.Parameters.AddWithValue("@City", city);
+                cmd.Parameters.AddWithValue("@County", county);
+                cmd.Parameters.AddWithValue("@CourseLevel", level);
+                cmd.Parameters.AddWithValue("@Course", course);
+                cmd.Parameters.AddWithValue("@StudentNo", studentNo);
 
-            DA.UpdateCommand = new SqlCommand(
-               "UPDATE Student SET PhoneNo = @PhoneNo,Email=@Email,AddressLine1=@AddressLine1,AddressLine2=@AddressLine2,City=@City,County=@County " +
-               "WHERE StudentNo = @StudentNo", openConnection());
+                cmd.ExecuteNonQuery();
 
-            DA.UpdateCommand.Parameters.Add(
-                "@PhoneNo", SqlDbType.VarChar, 20, "PhoneNo");
-            DA.UpdateCommand.Parameters.Add(
-               "@Email", SqlDbType.VarChar, 100, "Email");
-            DA.UpdateCommand.Parameters.Add(
-               "@AddressLine1", SqlDbType.VarChar, 100, "AddressLine1");
-            DA.UpdateCommand.Parameters.Add(
-                "@AddressLine2", SqlDbType.VarChar, 100, "AddressLine2");
-            DA.UpdateCommand.Parameters.Add(
-                "@City", SqlDbType.VarChar, 50, "City");
-            DA.UpdateCommand.Parameters.Add(
-               "@County", SqlDbType.VarChar, 50, "County");
+            }
+            catch (Exception)
+            {
+                throw new Exception("No student to remove");
+            }
+            closeConnection();
 
-            SqlParameter parameter = DA.UpdateCommand.Parameters.Add(
-              "@StudentNo", SqlDbType.Int);
-            parameter.SourceColumn = "StudentNo";
-            parameter.SourceVersion = DataRowVersion.Original;
 
-            DataTable studentTable = new DataTable();
-            DA.Fill(studentTable);
 
-            DataRow studentRow = studentTable.Rows[0];
-            studentRow["PhoneNo"] = "PhoneNo";
+            #region didnt work
+            //  SqlDataAdapter DA = new SqlDataAdapter(
+            //"SELECT *  FROM Student",
+            //openConnection());
 
-            DA.Update(studentTable);
+            //  DA.UpdateCommand = new SqlCommand(
+            //     "UPDATE Student SET PhoneNo = @PhoneNo,Email=@Email,AddressLine1=@AddressLine1,AddressLine2=@AddressLine2,City=@City,County=@County " +
+            //     "WHERE StudentNo = @StudentNo", openConnection());
+
+            //  DA.UpdateCommand.Parameters.Add(
+            //      "@PhoneNo", SqlDbType.VarChar, 20, "PhoneNo");
+            //  DA.UpdateCommand.Parameters.Add(
+            //     "@Email", SqlDbType.VarChar, 100, "Email");
+            //  DA.UpdateCommand.Parameters.Add(
+            //     "@AddressLine1", SqlDbType.VarChar, 100, "AddressLine1");
+            //  DA.UpdateCommand.Parameters.Add(
+            //      "@AddressLine2", SqlDbType.VarChar, 100, "AddressLine2");
+            //  DA.UpdateCommand.Parameters.Add(
+            //      "@City", SqlDbType.VarChar, 50, "City");
+            //  DA.UpdateCommand.Parameters.Add(
+            //     "@County", SqlDbType.VarChar, 50, "County");
+
+            //  SqlParameter parameter = DA.UpdateCommand.Parameters.Add(
+            //    "@StudentNo", SqlDbType.Int);
+            //  parameter.SourceColumn = "StudentNo";
+            //  parameter.SourceVersion = DataRowVersion.Original;
+
+            //  DataTable studentTable = new DataTable();
+            //  DA.Fill(studentTable);
+
+            //  DataRow studentRow = studentTable.Rows[0];
+            //  studentRow["PhoneNo"] = "PhoneNo";
+
+            //  DA.Update(studentTable);
+            #endregion
 
             #region close
             //SqlCommand cmd = new SqlCommand("UPDATE Student VALUES(@studentNo,@FName, @LName, @email, @phone, @addressL1, @addressL2, @city," +
