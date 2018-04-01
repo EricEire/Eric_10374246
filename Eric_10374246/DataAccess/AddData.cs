@@ -41,17 +41,15 @@ namespace Eric_10374246.DataAccess
         }
 
 
-        public void DeleteStudent(string firstName, string lastName, string email, string tel, string addL1, string addL2, string city, string county, string level, string course, int studentNo)
-        {
-            DAO dao = new DAO();
+        public void DeleteStudentSN(int studentNo)
+        { 
            
             openConnection();
             try
             {
-                SqlDataAdapter DA = new SqlDataAdapter("DELETE * FROM Student",openConnection());
-                DA.DeleteCommand = dao.CreateCommand();
-                DA.DeleteCommand.CommandText = "DELETE * FROM STUDENT";
-                DA.DeleteCommand.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand("DELETE FROM Student WHERE studentNo=@StudentNo",openConnection());
+                cmd.Parameters.AddWithValue("@StudentNo", studentNo);
+                cmd.ExecuteNonQuery();
                 
             }catch(Exception)
             {

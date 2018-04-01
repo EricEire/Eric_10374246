@@ -226,12 +226,8 @@ namespace Eric_10374246
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            DAO dao = new DAO();
-
             dao.openConnection();
-
-            Student.DeleteStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
-
+            Student.DeleteStudent(int.Parse(txtStudentNo.Text));
             dao.closeConnection();
 
             ClearFields();

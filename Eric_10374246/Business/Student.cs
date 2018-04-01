@@ -8,6 +8,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 
 
+
 namespace Business
 {
     class Student
@@ -45,16 +46,20 @@ namespace Business
 
         }
 
+        public Student() { }
+
+        public Student(int studentNo)
+        {
+            this.studentNo = studentNo;
+        }
 
         public void addToDB()
         {
             data.addStudent(firstName,lastName,email,tel,addL1,addL2,city,county,level, course,studentNo);
         }
 
-        public void RemoveFromDB()
-        {
-            data.DeleteStudent(firstName, lastName, email, tel, addL1, addL2, city, county, level, course, studentNo);
-        }
+       
+
 
         public static void AddStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs,  int sn)
         {
@@ -64,11 +69,14 @@ namespace Business
             
         }
 
-        public static void DeleteStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs, int sn)
+        public static void DeleteStudent(int StudentNo)
         {
-            Student s = new Student(fn, ln, e, t, a1, a2, c, co, l, crs, sn);
-            students.Remove(s);
-            s.RemoveFromDB();
+            Student s = new Student(StudentNo);
+            s.removeFromDB(StudentNo);
+        }
+        public void removeFromDB(int StudentNo)
+        {
+          data.DeleteStudentSN(studentNo);
         }
 
         public static void UpdateStudent(string fn, string ln, string e, string t, string a1, string a2, string c, string co, string l, string crs, int sn)
