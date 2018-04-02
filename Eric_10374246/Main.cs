@@ -16,7 +16,7 @@ namespace Eric_10374246
     public partial class Main : Form
     {
         DAO dao = new DAO();
-        //private DataSet ds;
+        private DataSet ds;
         public string level;
         public Main()
         {
@@ -49,6 +49,45 @@ namespace Eric_10374246
 
            Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text,txtPhone.Text,txtAdd1.Text,txtAdd2.Text, txtCity.Text, cmbCounty.Text,RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text) );
 
+
+            //Add to XML
+            DataTable dt;
+            if (ds == null)
+            {
+                ds = new DataSet("DBS");
+                dt = new DataTable("Students");
+                dt.Columns.Add("StudentNo");
+                dt.Columns.Add("FirstName");
+                dt.Columns.Add("LastName");
+                dt.Columns.Add("Email");
+                dt.Columns.Add("Phone");
+                dt.Columns.Add("Address Line 1");
+                dt.Columns.Add("Address Line 2");
+                dt.Columns.Add("City");
+                dt.Columns.Add("County");
+                dt.Columns.Add("CourseLevel");
+                dt.Columns.Add("Course");
+                ds.Tables.Add(dt);
+            }
+            dt = ds.Tables["Students"];
+            DataRow row = dt.NewRow();
+            row["StudentNo"] = txtStudentNo.Text;
+            row["FirstName"] = txtFN.Text;
+            row["LastName"] = txtLN.Text;
+            row["Email"] = txtEmail.Text;
+            row["Phone"] = txtPhone.Text;
+            row["Address Line 1"] = txtAdd1.Text;
+            row["Address Line 2"] = txtAdd2.Text;
+            row["City"] = txtCity.Text;
+            row["County"] = cmbCounty.Text;
+            row["CourseLevel"] = RadioChoice();
+            row["Course"] = cmbCourses.Text;
+
+            dt.Rows.Add(row);
+            dt.AcceptChanges();
+
+        
+
             dao.closeConnection();
             ClearFields();
             Grid();
@@ -56,6 +95,8 @@ namespace Eric_10374246
             
         }
 
+
+        #region menu 
         private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -78,11 +119,47 @@ namespace Eric_10374246
 
             dao.closeConnection();
 
+            //Add to XML
+            DataTable dt;
+            if (ds == null)
+            {
+                ds = new DataSet("DBS");
+                dt = new DataTable("Students");
+                dt.Columns.Add("StudentNo");
+                dt.Columns.Add("FirstName");
+                dt.Columns.Add("LastName");
+                dt.Columns.Add("Email");
+                dt.Columns.Add("Phone");
+                dt.Columns.Add("Address Line 1");
+                dt.Columns.Add("Address Line 2");
+                dt.Columns.Add("City");
+                dt.Columns.Add("County");
+                dt.Columns.Add("CourseLevel");
+                dt.Columns.Add("Course");
+                ds.Tables.Add(dt);
+            }
+            dt = ds.Tables["Students"];
+            DataRow row = dt.NewRow();
+            row["StudentNo"] = txtStudentNo.Text;
+            row["FirstName"] = txtFN.Text;
+            row["LastName"] = txtLN.Text;
+            row["Email"] = txtEmail.Text;
+            row["Phone"] = txtPhone.Text;
+            row["Address Line 1"] = txtAdd1.Text;
+            row["Address Line 2"] = txtAdd2.Text;
+            row["City"] = txtCity.Text;
+            row["County"] = cmbCounty.Text;
+            row["CourseLevel"] = RadioChoice();
+            row["Course"] = cmbCourses.Text;
+
+            dt.Rows.Add(row);
+            dt.AcceptChanges();
+
             ClearFields();
             Grid();
             MessageBox.Show("Student Successfully Added");
         }
-
+        #endregion
 
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -194,6 +271,19 @@ namespace Eric_10374246
             txtLN.ReadOnly = false;
 
             Grid();
+        }
+
+        private void btnXml_Click(object sender, EventArgs e)
+        {
+
+            if (txtFileName.Text == "")
+            {
+                txtFileName.Text = "Students.xml";
+            }
+            ds.WriteXml(txtFileName.Text);
+
+            MessageBox.Show("XML Saved");
+
         }
     }
 }

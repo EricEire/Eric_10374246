@@ -72,6 +72,9 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnXml = new System.Windows.Forms.Button();
+            this.lblFileName = new System.Windows.Forms.Label();
+            this.txtFileName = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.SuspendLayout();
@@ -524,12 +527,41 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // Form1
+            // btnXml
+            // 
+            this.btnXml.Location = new System.Drawing.Point(682, 626);
+            this.btnXml.Name = "btnXml";
+            this.btnXml.Size = new System.Drawing.Size(208, 35);
+            this.btnXml.TabIndex = 35;
+            this.btnXml.Text = "Export XML";
+            this.btnXml.UseVisualStyleBackColor = true;
+            this.btnXml.Click += new System.EventHandler(this.btnXml_Click);
+            // 
+            // lblFileName
+            // 
+            this.lblFileName.AutoSize = true;
+            this.lblFileName.Location = new System.Drawing.Point(596, 598);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(71, 17);
+            this.lblFileName.TabIndex = 36;
+            this.lblFileName.Text = "File Name";
+            // 
+            // txtFileName
+            // 
+            this.txtFileName.Location = new System.Drawing.Point(682, 598);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(208, 22);
+            this.txtFileName.TabIndex = 37;
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1146, 673);
+            this.Controls.Add(this.txtFileName);
+            this.Controls.Add(this.lblFileName);
+            this.Controls.Add(this.btnXml);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnUpdate);
@@ -567,7 +599,7 @@
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management System - DBS";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -625,6 +657,9 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnXml;
+        private System.Windows.Forms.Label lblFileName;
+        private System.Windows.Forms.TextBox txtFileName;
     }
 }
 
