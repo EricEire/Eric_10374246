@@ -70,10 +70,10 @@ namespace Eric_10374246.DataAccess
             {
                 openConnection();
 
-                SqlCommand cmd = new SqlCommand("UPDATE Student SET firstName=@FirstName,lastName=@LastName, " +
-                    " email=@Email,tel=@PhoneNo,addL1=@AddressLine1, addL2=@AddressLine2, " +
-                    "city=@City, county=@County, " +
-                "level=@CourseLevel,course=@Course WHERE studentNo = @StudentNo", openConnection());
+                SqlCommand cmd = new SqlCommand("UPDATE Student SET FirstName=@FirstName,LastName=@LastName, " +
+                    " Email=@Email,PhoneNo=@PhoneNo,AddressLine1=@AddressLine1, AddressLine2=@AddressLine2, " +
+                    "City=@City, County=@County, " +
+                "CourseLevel=@CourseLevel,Course=@Course WHERE StudentNo = @StudentNo", openConnection());
 
                 
                 cmd.Parameters.AddWithValue("@FirstName", firstName);
