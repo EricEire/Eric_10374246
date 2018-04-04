@@ -30,23 +30,6 @@ namespace Eric_10374246
             Grid();
         }
 
-        public bool IsValidEmailAddress(string email)
-        {
-
-            try
-            {
-                MailAddress ma = new MailAddress(email);
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-
-
 
         public string RadioChoice()
         {
@@ -105,19 +88,76 @@ namespace Eric_10374246
 
         private void aDDNEWSTUDENTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //same as btnAddStudent... may remove, seems pointless
             DAO dao = new DAO();
 
             dao.openConnection();
 
-            Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text));
+            if (txtEmail.Text.Contains("@") && txtEmail.Text.Contains("."))
+            {
+                if (txtStudentNo.Text.Length != 8)
+                {
+                    MessageBox.Show("StudentNo must be 8 digits only!");
+                }
+                else
+                {
+                    Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(),
+                        cmbCourses.Text, int.Parse(txtStudentNo.Text.ToString()));
+                    dao.closeConnection();
+                    ClearFields();
+                    Grid();
+                    MessageBox.Show("Student Successfully Added");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Email must contain @ and a .domain name");
+            }
 
+        }
+
+        private void eDITSTUDENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DAO dao = new DAO();
+            dao.openConnection();
+
+
+            if (txtEmail.Text.Contains("@") && txtEmail.Text.Contains("."))
+            {
+                Student.UpdateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, cmbCourses.Text, RadioChoice(), int.Parse(txtStudentNo.Text));
+
+                dao.closeConnection();
+
+                txtFN.ReadOnly = false;
+                txtLN.ReadOnly = false;
+                txtStudentNo.ReadOnly = false;
+                MessageBox.Show("Student Updated");
+                btnUpdate.Visible = false;
+                ClearFields();
+                Grid();
+            }
+            else
+            {
+                MessageBox.Show("Email must contain @ and .domain name");
+            }
+
+        }
+
+        private void dELETESTUDENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dao.openConnection();
+            Student.DeleteStudent(int.Parse(txtStudentNo.Text));
             dao.closeConnection();
-
 
             ClearFields();
             Grid();
-            MessageBox.Show("Student Successfully Added");
+
+            MessageBox.Show("Student Deleted");
+            txtFN.ReadOnly = false;
+            txtLN.ReadOnly = false;
+            txtStudentNo.ReadOnly = true;
+
+            Grid();
+            txtStudentNo.ReadOnly = false;
         }
         #endregion
 
@@ -172,18 +212,25 @@ namespace Eric_10374246
             DAO dao = new DAO();
             dao.openConnection();
 
-            Student.UpdateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, cmbCourses.Text, RadioChoice(), int.Parse(txtStudentNo.Text));
 
-            dao.closeConnection();
+            if (txtEmail.Text.Contains("@") && txtEmail.Text.Contains("."))
+            {
+                Student.UpdateStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, cmbCourses.Text, RadioChoice(), int.Parse(txtStudentNo.Text));
 
-            txtFN.ReadOnly = false;
-            txtLN.ReadOnly = false;
-            txtStudentNo.ReadOnly = false;
-            MessageBox.Show("Student Updated");
-            btnUpdate.Visible = false;
-            ClearFields();
-            Grid();
+                dao.closeConnection();
 
+                txtFN.ReadOnly = false;
+                txtLN.ReadOnly = false;
+                txtStudentNo.ReadOnly = false;
+                MessageBox.Show("Student Updated");
+                btnUpdate.Visible = false;
+                ClearFields();
+                Grid();
+            }
+            else
+            {
+                MessageBox.Show("Email must contain @ and .domain name");
+            }
         }
 
         private void dgStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -270,5 +317,7 @@ namespace Eric_10374246
         
                 form.Show();
         }
+
+      
     }
 }

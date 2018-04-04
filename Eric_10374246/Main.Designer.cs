@@ -398,7 +398,7 @@
             this.eDITSTUDENTToolStripMenuItem,
             this.dELETESTUDENTToolStripMenuItem});
             this.sTUDENTToolStripMenuItem.Name = "sTUDENTToolStripMenuItem";
-            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.sTUDENTToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.sTUDENTToolStripMenuItem.Text = "STUDENT";
             // 
             // aDDNEWSTUDENTToolStripMenuItem
@@ -413,12 +413,14 @@
             this.eDITSTUDENTToolStripMenuItem.Name = "eDITSTUDENTToolStripMenuItem";
             this.eDITSTUDENTToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.eDITSTUDENTToolStripMenuItem.Text = "EDIT STUDENT";
+            this.eDITSTUDENTToolStripMenuItem.Click += new System.EventHandler(this.eDITSTUDENTToolStripMenuItem_Click);
             // 
             // dELETESTUDENTToolStripMenuItem
             // 
             this.dELETESTUDENTToolStripMenuItem.Name = "dELETESTUDENTToolStripMenuItem";
             this.dELETESTUDENTToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.dELETESTUDENTToolStripMenuItem.Text = "DELETE STUDENT";
+            this.dELETESTUDENTToolStripMenuItem.Click += new System.EventHandler(this.dELETESTUDENTToolStripMenuItem_Click);
             // 
             // dATABASEToolStripMenuItem
             // 
