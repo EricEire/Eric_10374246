@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Eric_10374246.DataAccess;
+using System.Net.Mail;
 
 namespace Eric_10374246
 {
     public partial class Main : Form
     {
         DAO dao = new DAO();
-        private DataSet ds;
+       
         public string level;
         public Main()
         {
@@ -27,6 +29,24 @@ namespace Eric_10374246
         {
             Grid();
         }
+
+        public bool IsValidEmailAddress(string email)
+        {
+
+            try
+            {
+                MailAddress ma = new MailAddress(email);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+
 
         public string RadioChoice()
         {
@@ -47,12 +67,26 @@ namespace Eric_10374246
 
             dao.openConnection();
 
-           Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text,txtPhone.Text,txtAdd1.Text,txtAdd2.Text, txtCity.Text, cmbCounty.Text,RadioChoice(), cmbCourses.Text, int.Parse(txtStudentNo.Text) );   
-
-            dao.closeConnection();
-            ClearFields();
-            Grid();
-            MessageBox.Show("Student Successfully Added");
+            if (txtEmail.Text.Contains("@") && txtEmail.Text.Contains("."))
+            {
+                if (txtStudentNo.Text.Length != 8)
+                {
+                    MessageBox.Show("StudentNo must be 8 digits only!");
+                }
+                else
+                {
+                    Student.AddStudent(txtFN.Text, txtLN.Text, txtEmail.Text, txtPhone.Text, txtAdd1.Text, txtAdd2.Text, txtCity.Text, cmbCounty.Text, RadioChoice(),
+                        cmbCourses.Text, int.Parse(txtStudentNo.Text.ToString()));
+                    dao.closeConnection();
+                    ClearFields();
+                    Grid();
+                    MessageBox.Show("Student Successfully Added");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Email must contain @ and a .domain name");
+            }
             
         }
 
@@ -144,6 +178,7 @@ namespace Eric_10374246
 
             txtFN.ReadOnly = false;
             txtLN.ReadOnly = false;
+            txtStudentNo.ReadOnly = false;
             MessageBox.Show("Student Updated");
             btnUpdate.Visible = false;
             ClearFields();
@@ -170,6 +205,8 @@ namespace Eric_10374246
 
                 txtFN.ReadOnly = true;
                 txtLN.ReadOnly = true;
+                txtStudentNo.ReadOnly = true;
+                
                 
 
                 btnUpdate.Visible = true;
@@ -180,6 +217,10 @@ namespace Eric_10374246
         {
             Grid();
             txtSearch.Text = "";
+            ClearFields();
+            txtFN.ReadOnly = false;
+            txtLN.ReadOnly = false;
+            txtStudentNo.ReadOnly = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -195,8 +236,10 @@ namespace Eric_10374246
             MessageBox.Show("Student Deleted");
             txtFN.ReadOnly = false;
             txtLN.ReadOnly = false;
+            txtStudentNo.ReadOnly = true;
 
             Grid();
+            txtStudentNo.ReadOnly = false;
         }
 
         private void btnXml_Click(object sender, EventArgs e)
@@ -219,6 +262,13 @@ namespace Eric_10374246
 
             MessageBox.Show("XML Saved");
 
+        }
+
+        private void vIEWDATABASEHISTORYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DBBHistory form = new DBBHistory();
+        
+                form.Show();
         }
     }
 }

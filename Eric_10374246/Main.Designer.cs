@@ -433,6 +433,7 @@
             this.vIEWDATABASEHISTORYToolStripMenuItem.Name = "vIEWDATABASEHISTORYToolStripMenuItem";
             this.vIEWDATABASEHISTORYToolStripMenuItem.Size = new System.Drawing.Size(257, 26);
             this.vIEWDATABASEHISTORYToolStripMenuItem.Text = "VIEW DATABASE HISTORY";
+            this.vIEWDATABASEHISTORYToolStripMenuItem.Click += new System.EventHandler(this.vIEWDATABASEHISTORYToolStripMenuItem_Click);
             // 
             // eXITLOGOUTToolStripMenuItem
             // 

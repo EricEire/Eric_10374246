@@ -49,6 +49,12 @@
     <Compile Include="DataAccess\AddData.cs" />
     <Compile Include="DataAccess\DAO.cs" />
     <Compile Include="DataAccess\LoginData.cs" />
+    <Compile Include="DBBHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBBHistory.Designer.cs">
+      <DependentUpon>DBBHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DBBHistory.resx">
+      <DependentUpon>DBBHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
